@@ -1,0 +1,36 @@
+.signup-box-container .input:focus {
+  border-color: var(--SECONDARY-ACCENT-CLR-DARK);
+}
+
+.signup-box-container .input {
+  width: 100%;
+}
+
+.signup-box-container .input-container {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.signup-box-container .input-container > label {
+  position: absolute;
+  top: -1.5rem;
+  left: var(--INPUT-PADDING-X);
+}
+
+.signup-box-container .--secondary-btn {
+  color: var(--SECONDARY-ACCENT-CLR-LIGHT);
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.progress-bar {
+  background: var(--SECONDARY-ACCENT-CLR-DARK);
+  border-radius: 5px;
+  height: 5px;
+  margin-block-end: 2rem;
+  transition: width var(--TRANSITION-DURATION);
+}

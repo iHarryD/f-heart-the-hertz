@@ -1,0 +1,6 @@
+.basic-chip {
+  background: var(--ACCENT-CLR);
+  border-radius: 25px;
+  color: var(--PRIMARY-FONT-CLR);
+  padding: 0.3rem 1rem;
+}
