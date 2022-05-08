@@ -1,0 +1,65 @@
+.card {
+  align-items: flex-end;
+  border-radius: var(--BORDER-RADIUS);
+  display: flex;
+  height: 30rem;
+  overflow: hidden;
+  position: relative;
+  width: 23rem;
+}
+
+.card-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.card-background::after {
+  background: linear-gradient(180deg, #0000003d, #000000e8 90%);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-background img {
+  height: 100%;
+  width: 100%;
+}
+
+.btn-container {
+  justify-content: space-around;
+}
+
+.card__title {
+  font-size: 1.1rem;
+}
+
+.card-foreground {
+  text-align: center;
+  width: 100%;
+}
+
+.play-btn {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card.--empty-card {
+  align-items: center;
+  background: var(--ACCENT-CLR);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card.--empty-card > * {
+  opacity: 0.5;
+}
