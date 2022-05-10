@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
+import { signup } from "../../services/authServices";
 import { BasicChip } from "../chips/Chips";
 
-export default function SignupSecondPage() {
+export default function SignupSecondPage({ userData, userDataSetter }) {
   const eachPreferenceLimit = 5;
   const tracksInputRef = useRef();
   const artistsInputRef = useRef();
@@ -21,6 +22,11 @@ export default function SignupSecondPage() {
             ref={tracksInputRef}
             className="input"
             placeholder={`Select your top 5 tracks`}
+            onDoubleClick={(e) =>
+              setUserPreference((prev) => {
+                return { ...prev, tracks: [...prev.tracks, e.target.value] };
+              })
+            }
           />
         </div>
         <div className="chip-container">
@@ -38,6 +44,11 @@ export default function SignupSecondPage() {
             ref={artistsInputRef}
             className="input"
             placeholder={`Select your top 5 artists`}
+            onDoubleClick={(e) =>
+              setUserPreference((prev) => {
+                return { ...prev, artists: [...prev.artists, e.target.value] };
+              })
+            }
           />
         </div>
         <div className="chip-container">
@@ -55,6 +66,11 @@ export default function SignupSecondPage() {
             ref={genresInputRef}
             className="input"
             placeholder={`Select your top 5 genres`}
+            onDoubleClick={(e) =>
+              setUserPreference((prev) => {
+                return { ...prev, genres: [...prev.genres, e.target.value] };
+              })
+            }
           />
         </div>
         <div className="chip-container">
@@ -65,7 +81,17 @@ export default function SignupSecondPage() {
           ))}
         </div>
       </div>
-      <button className="btn --primary-btn">Sign Up</button>
+      <button
+        className="btn --primary-btn"
+        onClick={() => {
+          userDataSetter((prev) => {
+            return { ...prev, preferences: userPreference };
+          });
+          signup(userData);
+        }}
+      >
+        Sign Up
+      </button>
     </>
   );
 }

@@ -4,6 +4,12 @@ import SignupFirstPage from "../signupFirstPage/SignupFirstPage";
 import SignupSecondPage from "../signupSecondPage/SignupSecondPage";
 
 export default function SignupBox({ toLoginSetter }) {
+  const [userData, setUserData] = useState({
+    fullName: null,
+    email: null,
+    password: null,
+    preferences: null,
+  });
   const [pageNumber, setPageNumber] = useState(1);
   const totalPages = 2;
 
@@ -17,10 +23,11 @@ export default function SignupBox({ toLoginSetter }) {
         {pageNumber === 1 ? (
           <SignupFirstPage
             signupPageNumberSetter={setPageNumber}
+            userDataSetter={setUserData}
             toLoginSetter={toLoginSetter}
           />
         ) : (
-          <SignupSecondPage />
+          <SignupSecondPage userData={userData} userDataSetter={setUserData} />
         )}
       </div>
     </div>
