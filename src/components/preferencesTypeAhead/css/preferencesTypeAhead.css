@@ -1,0 +1,12 @@
+.type-ahead-container {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.type-ahead-item {
+  background: var(--ACCENT-CLR);
+  border-bottom: 1px solid var(--PRIMARY-BACKGROUND-CLR);
+  padding: 5px;
+  text-align: center;
+}
